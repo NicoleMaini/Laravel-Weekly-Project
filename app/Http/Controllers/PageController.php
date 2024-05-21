@@ -15,4 +15,12 @@ class PageController extends Controller
     {
         return view('about');
     }
+    public function error()
+    {
+        return view('404');
+    }
+    public function contact()
+    {
+        return view('contact');
+    }
 }
