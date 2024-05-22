@@ -1,3 +1,5 @@
-<div>
-    <!-- It is never too late to be what you might have been. - George Eliot -->
-</div>
+@extends('template.template')
+@section('title', 'LWP - Create Products')
+@section('content')
+    <h1>sono la create Products</h1>
+@endsection

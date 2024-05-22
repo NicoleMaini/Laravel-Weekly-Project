@@ -58,7 +58,8 @@
                                     class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-lightBlue-400">
                                     <i class="fas fa-retweet"></i>
                                 </div>
-                                <h6 class="text-xl font-semibold">Free Revisions</h6>
+                                <a class="block text-xl font-semibold" href="{{ route('products.index') }}">Ours
+                                    Posts</a>
                                 <p class="mt-2 mb-4 text-blueGray-500">
                                     Keep you user engaged by providing meaningful information.
                                     Remember that by this time, the user is curious.

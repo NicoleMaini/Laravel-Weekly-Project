@@ -24,7 +24,7 @@ class UserFactory extends Factory
     public function definition(): array
     {
         return [
-            'profile_image' => fake()->imageUrl(640, 480, 'animals', true),
+            'profile_image' => fake()->imageUrl(640, 480, true),
             'name' => fake()->name(),
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),

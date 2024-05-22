@@ -17,7 +17,8 @@
         </div>
         <ul
             class="hidden absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-6">
-            <li><a class="text-lg font-semibold hover:text-gray-500" href="{{ route('home') }}">Home</a></li>
+            <li><a class="text-lg font-semibold hover:text-gray-500 {{ request()->routeIs('home') ? 'text-blue-600' : '' }}"
+                    href="{{ route('home') }}">Home</a></li>
             <li class="text-gray-300">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor"
                     class="w-4 h-4 current-fill" viewBox="0 0 24 24">
@@ -25,7 +26,9 @@
                         d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
                 </svg>
             </li>
-            <li><a class="text-lg font-semibold hover:text-gray-500" href="{{ route('about') }}">About Us</a></li>
+            <li><a class="text-lg font-semibold hover:text-gray-500  {{ request()->routeIs('products.index') ? 'text-blue-600' : '' }}"
+                    href="{{ route('products.index') }}">Ours Posts</a>
+            </li>
             <li class="text-gray-300">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor"
                     class="w-4 h-4 current-fill" viewBox="0 0 24 24">
@@ -33,20 +36,29 @@
                         d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
                 </svg>
             </li>
-            <li><a class="text-sm text-xl font-semibold hover:text-gray-500" href="{{ route('contact') }}">Contact</a>
+            <li><a class="text-lg font-semibold hover:text-gray-500 {{ request()->routeIs('about') ? 'text-blue-600' : '' }}"
+                    href="{{ route('about') }}">About Us</a></li>
+            <li class="text-gray-300">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor"
+                    class="w-4 h-4 current-fill" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
+                </svg>
+            </li>
+            <li><a class="text-sm text-xl font-semibold hover:text-gray-500 {{ request()->routeIs('contact') ? 'text-blue-600' : '' }}"
+                    href="{{ route('contact') }}">Contact</a>
             </li>
         </ul>
-        <a class="hidden lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-100 text-sm text-gray-900 font-bold  rounded-xl transition duration-200"
-            href="#">Sign In</a>
-        <a class="hidden lg:inline-block py-2 px-6 bg-blue-500 hover:bg-blue-600 text-sm text-white font-bold rounded-xl transition duration-200"
-            href="#">Sign up</a>
+
+        {{-- DROPDOWN --}}
+
         @auth
             <button id="dropdownAvatarNameButton" data-dropdown-toggle="dropdownAvatarName"
-                class="flex items-center text-sm pe-1 ms-5 font-medium text-gray-900 rounded-full hover:text-blue-600 dark:hover:text-blue-500 md:me-0 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:text-white"
+                class="flex items-center text-sm pe-1 ms-3 font-medium text-gray-900 rounded-full hover:text-blue-600 dark:hover:text-blue-500 md:me-0 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:text-white"
                 type="button">
                 <span class="sr-only">Open user menu</span>
-                <img class="w-8 h-8 me-2 rounded-full" src="/docs/images/people/profile-picture-3.jpg" alt="user photo">
-                Bonnie Green
+                <img class="w-8 h-8 me-2 rounded-full" src="  {{ Auth::user()->profile_image }}" alt="user photo">
+                {{ Auth::user()->name }}
                 <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                     viewBox="0 0 10 6">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -58,30 +70,34 @@
             <div id="dropdownAvatarName"
                 class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
                 <div class="px-4 py-3 text-sm text-gray-900 dark:text-white">
-                    <div class="font-medium ">Pro User</div>
-                    <div class="truncate">name@flowbite.com</div>
+                    <div class="font-medium "> {{ Auth::user()->name }}</div>
+                    <div class="truncate"> {{ Auth::user()->email }}</div>
                 </div>
                 <ul class="py-2 text-sm text-gray-700 dark:text-gray-200"
                     aria-labelledby="dropdownInformdropdownAvatarNameButtonationButton">
                     <li>
-                        <a href="#"
+                        <a href="{{ route('dashboard') }}"
                             class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
                     </li>
                     <li>
-                        <a href="#"
+                        <a href="{{ route('profile.edit') }}"
                             class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
-                    </li>
-                    <li>
-                        <a href="#"
-                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
                     </li>
                 </ul>
                 <div class="py-2">
-                    <a href="#"
-                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign
-                        out</a>
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <button type="submit"
+                            class="w-full text-start px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Logout</button>
+                    </form>
                 </div>
             </div>
+        @else
+            <a class="hidden lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-100 text-sm text-gray-900 font-bold  rounded-xl transition duration-200"
+                href="{{ route('login') }}">Login</a>
+            <a class="hidden lg:inline-block py-2 px-6 bg-blue-500 hover:bg-blue-600 text-sm text-white font-bold rounded-xl transition duration-200"
+                href="{{ route('register') }}">Sign up</a>
+
         @endauth
     </nav>
     <div class="navbar-menu relative z-50 hidden">
@@ -99,7 +115,8 @@
                 <button class="navbar-close">
                     <svg class="h-6 w-6 text-xl font-semibold cursor-pointer hover:text-gray-500"
                         xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12">
                         </path>
                     </svg>
                 </button>
@@ -123,9 +140,9 @@
             <div class="mt-auto">
                 <div class="pt-6">
                     <a class="block px-4 py-3 mb-3 leading-loose text-xs text-center font-semibold leading-none bg-gray-50 hover:bg-gray-100 rounded-xl"
-                        href="#">Sign in</a>
+                        href="{{ route('login') }}">Login</a>
                     <a class="block px-4 py-3 mb-2 leading-loose text-xs text-center text-white font-semibold bg-blue-600 hover:bg-blue-700  rounded-xl"
-                        href="#">Sign Up</a>
+                        href="{{ route('register') }}">Sign Up</a>
                 </div>
                 <p class="my-4 text-xs text-center text-xl font-semibold">
                     <span>Copyright © 2021</span>

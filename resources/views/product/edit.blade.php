@@ -1,3 +1,4 @@
-<div>
-    <!-- Simplicity is an acquired taste. - Katharine Gerould -->
-</div>
+@extends('template.template')
+@section('title', 'LWP - Edit Products')
+@section('content')
+@endsection

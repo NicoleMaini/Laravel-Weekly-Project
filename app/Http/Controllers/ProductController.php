@@ -7,13 +7,11 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        // $products = Product::all();
-        return view('product.index');
+        $products = Product::all();
+        $products = Product::select()->paginate(8);
+        return view('product.index', ['products' => $products]);
     }
 
     /**
@@ -21,7 +19,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return view('product.create');
     }
 
     /**
@@ -35,9 +33,10 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Product $product)
+    public function show($id)
     {
-        //
+        $product = Product::findOrFail($id);
+        return view('product.show', ['product' => $product]);
     }
 
     /**
