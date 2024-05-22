@@ -9,15 +9,8 @@ Route::get('/', [PageController::class, 'home'])->name('home');
 Route::get('/about', [PageController::class, 'about'])->name('about');
 Route::get('/contact', [PageController::class, 'contact'])->name('contact');
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
 Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-
+    Route::get('/dashboard', [PageController::class, 'dashboard'])->name('dashboard');
     Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
     Route::get('/products/{id}/edit', [ProductController::class, 'edit'])->name('products.edit');
     Route::post('/products', [ProductController::class, 'store'])->name('products.store');

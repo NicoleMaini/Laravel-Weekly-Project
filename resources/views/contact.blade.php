@@ -10,19 +10,25 @@
                     <h1 class="font-bold uppercase text-4xl">Send us a <br /> message</h1>
                 </div>
                 <div class="grid grid-cols-1 gap-5 md:grid-cols-2 mt-5">
-                    <input class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2" type="text"
-                        placeholder="First Name*" />
-                    <input class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2" type="text"
-                        placeholder="Last Name*" />
-                    <input class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2" type="email"
-                        placeholder="Email*" />
-                    <input class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2" type="number"
-                        placeholder="Phone*" />
+                    <input
+                        class="shadow-sm rounded-md w-full px-3 py-2 border border-gray-300 focus:outline-none focus:ring-blue-300 focus:ring-blue-300"
+                        type="text" placeholder="First Name*" />
+                    <input
+                        class="shadow-sm rounded-md w-full px-3 py-2 border border-gray-300 focus:outline-none focus:ring-blue-300 focus:ring-blue-300"
+                        type="text" placeholder="Last Name*" />
+                    <input
+                        class="shadow-sm rounded-md w-full px-3 py-2 border border-gray-300 focus:outline-none focus:ring-blue-300 focus:ring-blue-300"
+                        type="email" placeholder="Email*" />
+                    <input
+                        class="shadow-sm rounded-md w-full px-3 py-2 border border-gray-300 focus:outline-none focus:ring-blue-300 focus:ring-blue-300"
+                        type="number" placeholder="Phone*" />
                 </div>
                 <div class="my-4">
-                    <textarea placeholder="Message*" class="w-full h-32 block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"></textarea>
+                    <textarea placeholder="Message*"
+                        class="w-full h-32 block shadow-sm rounded-md w-full px-3 py-2 border border-gray-300 focus:outline-none focus:ring-blue-300 focus:ring-blue-300"></textarea>
                 </div>
-                <div class="my-2 w-1/2 lg:w-1/4">
+                <div class="my-2
+                        w-1/2 lg:w-1/4">
                     <button onclick="alert('hello')" type="submit"
                         class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-red-400 hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                         Send Message

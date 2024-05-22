@@ -16,7 +16,6 @@ class ProductsSeeder extends Seeder
         for ($i = 0; $i < 30; $i++) {
             DB::table('products')->insert([
                 'title' => fake()->words(rand(3, 10), true),
-                'price' => rand(10, 100),
                 'author' => fake()->name(),
                 'description' => fake()->paragraph(rand(1, 2), true),
                 'article' => fake()->paragraph(rand(10, 15), true),

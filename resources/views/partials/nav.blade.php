@@ -17,7 +17,7 @@
         </div>
         <ul
             class="hidden absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-6">
-            <li><a class="text-lg font-semibold hover:text-gray-500 {{ request()->routeIs('home') ? 'text-blue-600' : '' }}"
+            <li><a class="text-lg hover:text-gray-500 {{ request()->routeIs('home') ? 'text-blue-600' : '' }}"
                     href="{{ route('home') }}">Home</a></li>
             <li class="text-gray-300">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor"
@@ -26,7 +26,7 @@
                         d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
                 </svg>
             </li>
-            <li><a class="text-lg font-semibold hover:text-gray-500  {{ request()->routeIs('products.index') ? 'text-blue-600' : '' }}"
+            <li><a class="text-lg hover:text-gray-500  {{ request()->routeIs('products.index') ? 'text-blue-600' : '' }}"
                     href="{{ route('products.index') }}">Ours Posts</a>
             </li>
             <li class="text-gray-300">
@@ -36,7 +36,7 @@
                         d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
                 </svg>
             </li>
-            <li><a class="text-lg font-semibold hover:text-gray-500 {{ request()->routeIs('about') ? 'text-blue-600' : '' }}"
+            <li><a class="text-lg hover:text-gray-500 {{ request()->routeIs('about') ? 'text-blue-600' : '' }}"
                     href="{{ route('about') }}">About Us</a></li>
             <li class="text-gray-300">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor"
@@ -45,7 +45,7 @@
                         d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
                 </svg>
             </li>
-            <li><a class="text-sm text-xl font-semibold hover:text-gray-500 {{ request()->routeIs('contact') ? 'text-blue-600' : '' }}"
+            <li><a class="text-sm text-xl hover:text-gray-500 {{ request()->routeIs('contact') ? 'text-blue-600' : '' }}"
                     href="{{ route('contact') }}">Contact</a>
             </li>
         </ul>
@@ -81,7 +81,7 @@
                     </li>
                     <li>
                         <a href="{{ route('profile.edit') }}"
-                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
+                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Plofile</a>
                     </li>
                 </ul>
                 <div class="py-2">
