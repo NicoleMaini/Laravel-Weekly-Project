@@ -7,15 +7,11 @@
             <div class="flex flex-wrap items-center">
                 <div class="w-10/12 md:w-6/12 lg:w-4/12 px-12 md:px-4 mr-auto ml-auto -mt-78">
                     <div
-                        class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg bg-emerald-400">
+                        class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg bg-emerald-400 overflow-hidden">
                         <img alt="..."
                             src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=700&amp;q=80"
                             class="w-full align-middle rounded-t-lg">
-                        <blockquote class="relative p-8 mb-4">
-                            <svg preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 583 95"
-                                class="absolute left-0 w-full block h-95-px -top-14">
-                                <polygon points="-30,95 583,95 583,65" class="text-emerald-400 fill-current"></polygon>
-                            </svg>
+                        <blockquote class="p-8 bg-emerald-400 ">
                             <h4 class="text-xl font-bold text-white">
                                 Great for your awesome project
                             </h4>

@@ -20,7 +20,9 @@
 
         <body>
             @include('partials.nav')
-            @yield('content')
+            <main>
+                @yield('content')
+            </main>
 
 
             <footer class="bg-white dark:bg-gray-900">
