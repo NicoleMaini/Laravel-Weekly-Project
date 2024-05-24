@@ -1,11 +1,26 @@
 @extends('template.template')
 @section('title', 'LWP-Products Dashboard')
 @section('content')
-    <div class="grid sm:grid-cols-6 ">
+    <div class="grid sm:grid-cols-6 relative">
         <div class="col-span-1 w-full">
             @include('partials.sidebar')
         </div>
         <div class="sm:col-span-5 md:col-span-3 lg:col-span-4 xl:col-span-5 w-full pe-14 pt-5">
+
+            @session('operation_success')
+                <x-operetion-confirmed op='success'>
+                    The post {{ session('operation_success')->title }} was successfully deleted
+                </x-operetion-confirmed>
+            @endsession
+
+            @session('update_success')
+                <x-operetion-confirmed op='success'>
+                    Updated "{{ session('update_success')->title }}" resource <a
+                        href="{{ route('products.show', ['id' => session('update_success')->id]) }}">Go</a>
+                </x-operetion-confirmed>
+            @endsession
+
+
             @if ($products)
                 <h2 class="m-4">Tablella dei post</h2>
                 <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
@@ -96,7 +111,7 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="mt-10 mb-0">{{ $products->links() }}</div>
+                <div class="mt-10 mb-10">{{ $products->links() }}</div>
             @else
                 <h2>Non ci sono post</h2>
             @endif

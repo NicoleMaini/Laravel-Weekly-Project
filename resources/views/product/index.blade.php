@@ -3,10 +3,20 @@
 @section('content')
     <h1 class="text-xl text-center font-semibold hover:text-gray-500 mt-10">Ours Posts</h1>
     <div class="container mx-auto p-10">
+        @session('no_permission')
+            <x-operetion-confirmed op='danger'>
+                You do not have permission to edit the {{ session('no_permission')->title }} post
+            </x-operetion-confirmed>
+        @endsession
         <div class="grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 gap-10">
             @if ($products)
                 @foreach ($products as $product)
                     <div class="relative flex w-80 flex-col justify-center overflow-hidden bg-gray-50 mx-auto">
+                        @auth
+                            @if (Auth::user()->id === $product->user_id)
+                                <x-edit-delet-btns :prod="$product"></x-edit-delet-btns>
+                            @endif
+                        @endauth
                         <div class="w-full items-center mx-auto max-w-screen-lg p-4">
                             <div class="group w-full">
                                 <div
@@ -38,4 +48,7 @@
         <h2 class="text-center">Non ci sono prodotti</h2>
         @endif
     </div>
+    @auth
+        <x-add-btn></x-add-btn>
+    @endauth
 @endsection

@@ -13,7 +13,7 @@
                             {{ $product->article }}
                         </p>
 
-                        <h3 class="mb-4 font-semibold text-xl text-gray-400 mt-auto">{{ $product->author }}</h3>
+                        <h3 class="mb-4 font-semibold text-xl text-gray-400 mt-auto ms-auto">{{ $product->author }}</h3>
                     </div>
                 </div>
                 <div
@@ -37,7 +37,15 @@
                         <img src="{{ $product->img }}" alt="">
                     </div>
                 </div>
+                @auth
+                    @if (Auth::user()->id === $product->user_id)
+                        <x-edit-delet-btns :prod="$product"></x-edit-delet-btns>
+                    @endif
+                @endauth
             </div>
         </div>
     </div>
+    @auth
+        <x-add-btn></x-add-btn>
+    @endauth
 @endsection

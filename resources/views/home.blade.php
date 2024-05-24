@@ -126,6 +126,8 @@
                     zethaak</p>
             </div>
         </div>
-
     </div>
+    @auth
+        <x-add-btn></x-add-btn>
+    @endauth
 @endsection

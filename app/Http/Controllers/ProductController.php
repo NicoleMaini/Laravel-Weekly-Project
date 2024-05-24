@@ -39,7 +39,7 @@ class ProductController extends Controller
         $newProduct->user_id = $request->user()->id;
         $newProduct->save();
 
-        return redirect()->route('dashboard')->with('creation_success', $newProduct);
+        return redirect()->route('products.create')->with('creation_success', $newProduct);
     }
 
     /**
@@ -99,6 +99,6 @@ class ProductController extends Controller
         }
         $product->delete();
 
-        return redirect()->route('dashboard')->with('operation_success');
+        return redirect()->route('dashboard')->with('operation_success', $product);
     }
 }

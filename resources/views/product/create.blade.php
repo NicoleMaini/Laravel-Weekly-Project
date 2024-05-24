@@ -1,12 +1,19 @@
 @extends('template.template')
 @section('title', 'LWP - Create Post')
 @section('content')
+
+
     <div class="grid sm:grid-cols-6 ">
-        <div class="col-span-1 w-full">
+        <div class="col-span-1 w-full h-screen">
             @include('partials.sidebar')
         </div>
         <div class="sm:col-span-5 md:col-span-3 lg:col-span-4 xl:col-span-5 w-full pe-14 pt-5">
             <h2 class="text-center text-lg">Create Post</h2>
+            @session('creation_success')
+                <x-operetion-confirmed op='success'>
+                    The post {{ session('creation_success')->title }} was successfully create
+                </x-operetion-confirmed>
+            @endsession
             <form method="POST" action="{{ route('products.store') }}" class="px-20 flex flex-col ">
                 @csrf
                 <div class="mb-4">
